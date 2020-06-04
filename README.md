@@ -7,4 +7,6 @@ To install one, just download one of the files below and put it in the `volcano/
 Also, be warned that all these plugins are janky.
 
 - [Git integration](https://raw.githubusercontent.com/kognise/volcano-plugins/master/git.js)
-- [Markdown emojis](https://raw.githubusercontent.com/kognise/volcano-plugins/master/emoji.js)
+- [Markdown emoji](https://raw.githubusercontent.com/kognise/volcano-plugins/master/emoji.js)
+
+**I want to clarify, these are all unofficial plugins based on an unofficial plugin API. As such, please don't bother the nice Obsidian developers with bug reports. Instead report issues through GitHub's interface on either this repository or Volcano.**
