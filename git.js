@@ -146,7 +146,7 @@ class GitPlugin {
 
       if (this.dirtyState.untracked) {
         this.setActionState('Committing...')
-        const formattedDate = window.moment().format('MMMM Do, YYYY')
+        const formattedDate = window.moment().format('MMMM Do, YYYY h:mma')
         await execPromise('git add .', { cwd })
         await execPromise(`git commit -m "${formattedDate}"`, { cwd })
         await this.updateDirty()
