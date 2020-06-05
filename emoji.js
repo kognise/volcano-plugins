@@ -51,7 +51,7 @@ class EmojiPlugin {
   }
 
   rerender(leaf) {
-    if (!leaf.children) return
+    if (!leaf || !leaf.children) return
 
     for (let child of leaf.children) {
       if (child.view && child.view.previewMode) {
