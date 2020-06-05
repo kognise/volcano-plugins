@@ -27,6 +27,7 @@ class GitPlugin {
       untracked: false
     }
     this.actionState = null
+    this.isRepo = true
   }
 
   init(app, instance) {
@@ -88,7 +89,12 @@ class GitPlugin {
   async updateStatusBar() {
     this.instance.statusBarEl.empty()
 
-    if (this.actionState) {
+    if (!this.isRepo) {
+      this.instance.statusBarEl.createEl('span', {
+        cls: 'status-bar-item-segment',
+        text: 'Not a repository'
+      })
+    } else if (this.actionState) {
       this.instance.statusBarEl.createEl('span', {
         cls: 'status-bar-item-segment',
         text: this.actionState
@@ -109,7 +115,24 @@ class GitPlugin {
 
   async updateDirty() {
     const { cwd } = this
-    await execPromise('git fetch', { cwd })
+
+    try {
+      await execPromise('git fetch', { cwd })
+    } catch (error) {
+      if (error.message.includes('not a git repository')) {
+        this.isRepo = false
+      }
+
+      this.dirtyState = {
+        localDirty: false,
+        remoteDirty: false,
+        untracked: false
+      }
+      this.actionState = null
+      
+      this.updateStatusBar()
+      return
+    }
 
     let untracked = false
     let remoteDirty = false
