@@ -15,7 +15,7 @@ class GitPlugin {
     this.id = 'git'
     this.name = 'Git'
     this.description = 'Makes it easy to store version history and sync your vault across computers with Git.'
-    this.defaultOn = true
+    this.defaultOn = false
 
     this.app = null
     this.instance = null

@@ -3,7 +3,7 @@ class EmojiPlugin {
     this.id = 'emoji'
     this.name = 'Markdown emoji'
     this.description = 'Renders emoji in the markdown preview.'
-    this.defaultOn = false
+    this.defaultOn = true
 
     this.app = null
     this.instance = null
