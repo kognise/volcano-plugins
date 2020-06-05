@@ -35,7 +35,7 @@ class CheckboxDeletePlugin {
 
   onQuickPreview(file, contents) {
     const leaf = this.app.workspace.activeLeaf
-    if (!leaf || leaf.view.file.path !== file.path) return
+    if (!leaf || leaf.view.file !== file) return
     if (this.options.prefix && !leaf.view.file.basename.startsWith(this.options.prefix))
       return
 
