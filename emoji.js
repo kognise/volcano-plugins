@@ -57,7 +57,7 @@ class EmojiPlugin {
       if (child.view && child.view.previewMode) {
         const contents = child.view.previewMode.get()
         child.view.previewMode.set('')
-        app.nextFrame(() => child.view.previewMode.set(contents))
+        this.app.nextFrame(() => child.view.previewMode.set(contents))
       }
 
       this.rerender(child)

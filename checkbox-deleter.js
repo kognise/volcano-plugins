@@ -35,13 +35,13 @@ class CheckboxDeletePlugin {
 
   onQuickPreview(file, contents) {
     const leaf = this.app.workspace.activeLeaf
-    if (!leaf || leaf.view.file !== file) return
+    if (!leaf || leaf.view.file.path !== file.path) return
     if (this.options.prefix && !leaf.view.file.basename.startsWith(this.options.prefix))
       return
 
     const cleanedContents = removeCheckedBoxes(contents)
     if (cleanedContents !== contents) {
-      leaf.view.setData(cleanedContents)
+      this.app.nextFrame(() => leaf.view.setData(cleanedContents), 0)
     }
   }
 }
