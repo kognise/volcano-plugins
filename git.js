@@ -138,12 +138,8 @@ class GitPlugin {
     let remoteDirty = false
     let localDirty = false
 
-    try {
-      await execPromise('git update-index --refresh ', { cwd })
-      await execPromise('git diff-index --quiet HEAD --', { cwd })
-    } catch {
-      untracked = true
-    }
+    const { stdout: status } = await execPromise('git status --porcelain', { cwd })
+    untracked = status.length !== 0
 
     try {
       const { stdout: local } = await execPromise('git rev-parse @', { cwd })
