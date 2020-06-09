@@ -41,7 +41,7 @@ class CheckboxDeletePlugin {
 
     const cleanedContents = removeCheckedBoxes(contents)
     if (cleanedContents !== contents) {
-      this.app.nextFrame(() => leaf.view.setData(cleanedContents), 0)
+      this.app.nextFrame(() => leaf.view.setData(cleanedContents))
     }
   }
 }

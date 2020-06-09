@@ -55,9 +55,8 @@ class EmojiPlugin {
 
     for (let child of leaf.children) {
       if (child.view && child.view.previewMode) {
-        const contents = child.view.previewMode.get()
-        child.view.previewMode.set('')
-        this.app.nextFrame(() => child.view.previewMode.set(contents))
+        child.view.previewMode.lastText = ''
+        child.view.previewMode.queueRender()
       }
 
       this.rerender(child)
