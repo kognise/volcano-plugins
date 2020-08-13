@@ -119,6 +119,7 @@ class GitPlugin {
     try {
       await execPromise('git fetch', { cwd })
     } catch (error) {
+      console.error(error)
       if (error.message.includes('not a git repository')) {
         this.isRepo = false
       }
@@ -145,6 +146,7 @@ class GitPlugin {
       const { stdout: local } = await execPromise('git rev-parse @', { cwd })
       const { stdout: remote } = await execPromise('git rev-parse @{u}', { cwd })
       const { stdout: base } = await execPromise('git merge-base @ @{u}', { cwd })
+      console.log(local, remote, base)
 
       const synced = local === remote
       const diverged = remote !== base && local !== base
