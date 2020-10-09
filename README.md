@@ -9,6 +9,7 @@ Also, be warned that all these plugins are janky.
 - [Git integration](https://raw.githubusercontent.com/kognise/volcano-plugins/master/git.js)
 - [Markdown emoji](https://raw.githubusercontent.com/kognise/volcano-plugins/master/emoji.js)
 - [Checked checkbox deleter](https://raw.githubusercontent.com/kognise/volcano-plugins/master/checkbox-deleter.js)
+- [Discord Rich Presence](https://github.com/lukeleppan/ObsidianRPC)
 
 **I want to clarify, these are all unofficial plugins based on an unofficial plugin API. As such, please don't bother the nice Obsidian developers with bug reports. Instead report issues through GitHub's interface on either this repository or Volcano.**
 
